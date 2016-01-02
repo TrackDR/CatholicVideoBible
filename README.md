@@ -14,4 +14,6 @@ Original twitter at https://twitter.com/otpodcast1
 
 Original blog at http://oldtestamentpodcast.blogspot.com/
 
+Itunes page: https://itunes.apple.com/us/podcast/otpodcast/id135958141?mt=2&ign-mpt=uo%3D4
+
 Itunes: itpc://feeds.feedburner.com/OTPodcast

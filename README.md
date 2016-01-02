@@ -11,3 +11,5 @@ Hosted at http://jeremy.libsyn.com/
 Original youtubes at https://www.youtube.com/user/OTPodcast and https://www.youtube.com/user/OTPodcast1
 
 Original twitter at https://twitter.com/otpodcast1
+
+Original blog at http://oldtestamentpodcast.blogspot.com/

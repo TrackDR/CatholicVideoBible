@@ -13,3 +13,5 @@ Original youtubes at https://www.youtube.com/user/OTPodcast and https://www.yout
 Original twitter at https://twitter.com/otpodcast1
 
 Original blog at http://oldtestamentpodcast.blogspot.com/
+
+Itunes: itpc://feeds.feedburner.com/OTPodcast

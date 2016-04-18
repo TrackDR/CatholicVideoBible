@@ -74,3 +74,6 @@ echo "\\end{document}" >> $texfile
 echo "Creating pdf"
 rm $outfile
 pdflatex $texfile
+
+echo "Creating ps and dvi"
+pslatex $texfile

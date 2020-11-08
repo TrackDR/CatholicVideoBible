@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Nov  8 00:53:15 2020
+
+@author: jerem
+"""
+
 from PIL import Image, ImageDraw, ImageFont
 import os
 import textwrap
@@ -6,10 +13,14 @@ import textwrap
 
 twitterwidth = 1024
 twitterheight = 512
+instawidth = 1080
+instaheight = 1080
+videowidth = 1920
+videoheight = 1080
 
-filename = "Wisdom13-13.jpg"
-imgwidth = 1080
-imgheight = 1080
+filename = "Wisdom13-15-insta.jpg"
+imgwidth = instawidth
+imgheight = instaheight
 
 img = Image.new('RGB', (imgwidth,imgheight), color=(0, 0, 0))
 canvas = ImageDraw.Draw(img)
@@ -35,7 +46,15 @@ being a crooked piece of wood, and full of knots, carveth it diligently \
 when he hath nothing else to do, and by the skill of his art fashioneth \
 it, and maketh it like the image of a man:"
 
-lines = textwrap.wrap(text, width=28)
+#text = "Wisdom 13:14. Or the resemblance of some beast, laying it over with vermilion, \
+#and painting it red, and covering every spot that is in it:"
+
+text = "Wisdom 13:15. And maketh a convenient dwelling place for it, and setting it in \
+a wall, and fastening it with iron,"
+
+instanumchars = 28
+videonumchars = 40
+lines = textwrap.wrap(text, width=instanumchars)
 lenlines = len(lines)
 linewidth, lineheight = font.getsize(lines[0])
 totallinesheight = lenlines * lineheight

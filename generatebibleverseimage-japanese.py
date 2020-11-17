@@ -36,7 +36,7 @@ text = u"初めに、神は天地を創造された。"
 title = "創世記/ 01章 01節"
 
 parser = budou.get_parser('tinysegmenter')
-results = parser.parse('初めに、神は天地を創造された。')
+results = parser.parse(text)
 #print(results['html_code'])
 
 linelen = 0

@@ -18,7 +18,13 @@ instaheight = 1080
 videowidth = 1920
 videoheight = 1080
 
-filename = "Wisdom14-3-insta-title.jpg"
+Book = "Wisdom"
+Chapter = "14"
+Verse = "13"
+
+filename = "Wisdom14-12-insta-title.jpg"
+filename = Book + Chapter + "-" + Verse + "-insta-title.jpg"
+
 imgwidth = instawidth
 imgheight = instaheight
 
@@ -27,27 +33,28 @@ canvas = ImageDraw.Draw(img)
 
 font = ImageFont.truetype('arial.ttf', size=80)
 
-text = "Wisdom 13:15. And maketh a convenient dwelling place for it, and setting it in \
-a wall, and fastening it with iron,"
+text = "And from the beginning also, when the proud giants perished, the \
+hope of the world fleeing to a vessel, which was governed by thy hand, \
+left to the world seed of generation."
 
-text = "Wisdom 13:17. And then maketh prayer to it, enquiring concerning his substance, \
-and his children, or his marriage.  And he is not ashamed to speak to \
-that which hath no life:"
+text = "For the beginning of fornication is the devising of idols: and \
+the invention of them is the corruption of life."
 
-text = "Wisdom 13:18. And for health he maketh supplication to the weak, and for life \
-prayeth to that which is dead, and for help calleth upon that which is \
-unprofitable:"
+#text = "For neither were they from the beginning, neither shall they be for ever."
 
-text = "Wisdom 14:1. Again, another designing to sail, and beginning to make his voyage \
-through the raging waves, calleth upon a piece of wood more frail than \
-the wood that carrieth him."
+basedirectory = r"E:\Religious\BooksWithVideoOrig\BooksWithVideo\BooksWithVideo\newchps"
+filename2read = os.path.join(basedirectory,Book + "_" + Chapter + "aarm.txt")
+with open(filename2read, 'rt') as f:
+    data = f.readlines()
+for line in data:
+    if line.__contains__(Chapter + ":" + Verse):
+        print(line)
+        line = line.split(None, 1)[-1]
+        print(line)
+        text  = line
 
-text = "Wisdom 14:2. For this the desire of gain devised, and the workman built it by his skill."
-
-text = "But thy providence, O Father, governeth it: for thou hast made a \
-way even in the sea, and a most sure path among the waves,"
-
-title = "Wisdom 14:3"
+title = "Wisdom 14:12"
+title = Book + " " + Chapter + ":" + Verse
 
 instanumchars = 28
 videonumchars = 40

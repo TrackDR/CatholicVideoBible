@@ -2,6 +2,10 @@
 
 Support files for creating videos at https://www.youtube.com/channel/UCoEOdVbK_Kph3jDFdKRszgQ
 
+Facebook: https://www.facebook.com/catholicvideobible
+
+Instagram: https://www.instagram.com/catholicvideobible
+
 Twitter at https://twitter.com/catholicvbible
 
 Feed at http://feeds.feedburner.com/OTPodcast

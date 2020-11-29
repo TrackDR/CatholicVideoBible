@@ -1,0 +1,19 @@
+Mt,Matthew
+Mk,Mark
+Lk,Luke
+Jn,John
+Ps,Psalms
+Is,Isaias
+1 Cor,1_Corinthians
+Rom,Romans
+2 Sm,2_Samuel
+Acts,Acts
+Heb,Hebrews
+Nm,Nehemias
+Gal,Galatians
+Eph,Ephesians
+1Jn,1_John
+1 Jn,1_John
+1 Sm,1_Samuel
+Jon,John
+Dt,Dueteromony

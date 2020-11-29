@@ -176,29 +176,10 @@ bcvinput = "Jn 1:6-8, 19-28"
 
 # 2nd Sunday Advent
 bcvinput = "Is 40:1-5,9-11"
-bcvinput = "Ps 85:8,9-14"
-bcvinput = "2 Pt 3:8-14"
-bcvinput = "Lk 3:4,6"
-bcvinput = "Mk 1:1-8"
-
-# 1st Sunday Advent
-#bcvinput = "Is 63:16B-17, 19B; 64:2-7"
-bcvinput = "Is 63:16-17,19"
-#bcvinput = "Is 64:2-7"
-#bcvinput = "Ps 79:2-3, 4, 15-16, 18-19"
-#bcvinput = "1 Cor 1:3-9"
-#bcvinput = "Ps 85:8"
-#bcvinput = "Mk 13:33-37"
-
-# Thanksgiving 2020
-#bcvinput = "Sir 50:22-24"
-#bcvinput = "Ps 144:1, 2-3, 4-5, 6-7, 8-9, 10-11"
-#bcvinput = "1 Cor 1:3-9"
-#bcvinput = "1 Thes 5:18"
-#bcvinput = "Lk 17:11-19"
-
-#bcvinput = "Ps 144:1, 2-3, 3-5, 8-9, 10-11"
-#bcvinput = "Jn 6: 1-3,3-5,10,11,15-18"
+bcvinput = "Ps 84:8,9-14"
+#bcvinput = "2 Pt 3:8-14"
+#bcvinput = "Lk 3:4,6"
+#bcvinput = "Mk 1:1-8"
 
 verses = bcvinput.split(":")[-1]
 bkch = bcvinput.split(":")[0:-1][0]
@@ -255,18 +236,13 @@ for i in verselinenums:
 print(basename)
 print(basenamebkch)
 
-with open(basename + '.txt', 'w') as f:
-    f.write(Book + " Chapter " + Chapter + ":" + verses + "\n")
-    for line in verselines:
-        f.write(line)
-
 #basename = "Wisdom6-12-16"
 #basename = "1Cor15-28"
 #basename = "Ez34-11-12--15-17"
 #basename = "Psalm22"
 
-instanumverses2write = 5
-instastorynumverses2write = 3
+instanumverses2write = 8
+instastorynumverses2write = 5
 twitternumverses2write = 5
 
 instanumchars = 45
@@ -282,12 +258,12 @@ instastoryheight = 1920
 videowidth = 1920
 videoheight = 1080
 
-instanumchars = 28
+instanumchars = 50
 instastorynumchars = 27
 videonumchars = 40
 twitternumchars = 40
 
-instafontsize = 80
+instafontsize = 45
 instastoryfontsize = 80
 twitterfontsize = 50
 
@@ -305,14 +281,19 @@ imgheight = instaheight
 fontsize = instafontsize
 numchars = instanumchars
 
-imgtag = imgtag = "-insta-title-story"
-numverses2write = instastorynumverses2write
-imgwidth = instastorywidth
-imgheight = instastoryheight
-fontsize = instastoryfontsize
-numchars = instastorynumchars
+# imgtag = imgtag = "-insta-title-story"
+# numverses2write = instastorynumverses2write
+# imgwidth = instastorywidth
+# imgheight = instastoryheight
+# fontsize = instastoryfontsize
+# numchars = instastorynumchars
 
-lines = [Book + " Chapter " + Chapter + ":" + verses]
+with open(basename + '.txt', 'w') as f:
+    f.write(Book.replace("_"," ") + " Chapter " + Chapter + ":" + verses + "\n")
+    for line in verselines:
+        f.write(line)
+
+lines = [Book.replace("_"," ") + " Chapter " + Chapter + ":" + verses]
 firstverseidx = 0
 basename = basenamebkch
 # subtract 1 for first page since one line will be the title

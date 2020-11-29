@@ -15,11 +15,13 @@ def genbibleverseimage(Book,Chapter,Verse,imgwidth,imgheight,numchars,imgtag,fon
     
     filename = "Wisdom14-12-insta-title.jpg"
     filename = Book + Chapter + "-" + Verse + imgtag + ".jpg"
+    textfileout = Book + Chapter + "-" + Verse + imgtag + ".txt"
     
     #imgwidth = instawidth
     #imgheight = instaheight
     
-    img = Image.new('RGB', (imgwidth,imgheight), color=(0, 0, 0))
+    #img = Image.new('RGB', (imgwidth,imgheight), color=(0, 0, 0))
+    img = Image.new('RGB', (imgwidth,imgheight), color=(0,0,139))
     canvas = ImageDraw.Draw(img)
     
     font = ImageFont.truetype('arial.ttf', size=fontsize)
@@ -128,6 +130,11 @@ def genbibleverseimage(Book,Chapter,Verse,imgwidth,imgheight,numchars,imgtag,fon
     
     img.save(filename)
     
+    with open(textfileout, 'w') as f:
+        f.write(Book + " Chapter " + Chapter + ":" + Verse + "\n")
+        for line in lines:
+            f.write(line)
+    
     #os.system(filename)
     
 if __name__ == '__main__':
@@ -143,18 +150,43 @@ if __name__ == '__main__':
     instanumchars = 28
     instastorynumchars = 24
     videonumchars = 40
+    twitternumchars = 40
     
     instafontsize = 80
     instastoryfontsize = 80
+    twitterfontsize = 50
 
+    startchp = 84
     Book = "Wisdom"
-    Chapter = "14"
-    Verse = "13"
+    numchps = 19
+    numchps = 12
+    Book = "Psalms"
+    numchps = 85
+    basedirectory = r"E:\Religious\BooksWithVideoOrig\BooksWithVideo\BooksWithVideo\newchps"
     
-    for verse in range(1,32):
-        Verse = str(verse)
-        imgtag = "-insta-title"
-        genbibleverseimage(Book,Chapter,Verse,instawidth,instaheight,instanumchars,imgtag,instafontsize)
-    
-        imgtag = "-insta-title-story"
-        genbibleverseimage(Book,Chapter,Verse,instastorywidth,instastoryheight,instastorynumchars,imgtag,instastoryfontsize)
+    for Chapter in range(startchp,numchps+1):
+
+        Chapter = str(Chapter)
+        filename2read = os.path.join(basedirectory,Book + "_" + Chapter + "aarm.txt")
+        with open(filename2read, 'rt') as f:
+            data = f.readlines()
+        for line in data:
+            print(line)
+            
+        line = line.split(".")[0]
+        print(line)
+        line = line.split(":")[1]
+        print(line)
+                
+        numverses = int(line)
+        
+        for verse in range(1,numverses+1):
+            Verse = str(verse)
+            imgtag = "-insta-title"
+            genbibleverseimage(Book,Chapter,Verse,instawidth,instaheight,instanumchars,imgtag,instafontsize)
+        
+            imgtag = "-insta-title-story"
+            genbibleverseimage(Book,Chapter,Verse,instastorywidth,instastoryheight,instastorynumchars,imgtag,instastoryfontsize)
+            
+            #imgtag = "-twitter-title"
+            #genbibleverseimage(Book,Chapter,Verse,twitterwidth,twitterheight,twitternumchars,imgtag,twitterfontsize)

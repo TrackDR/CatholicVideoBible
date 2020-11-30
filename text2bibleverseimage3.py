@@ -11,7 +11,7 @@ import textwrap
 import numpy as np
 
 
-def writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars,imgtag,fontsize):
+def writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars,imgtag,fontsize,pixelwidthstart):
     outfilename = basename + imgtag + ".txt"
     filename = basename + imgtag + ".jpg"
     
@@ -54,6 +54,7 @@ def writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars
     
     totallinesheight = 0
     for verse in lines:
+        totallinesheight += linespace*5
         vlines = textwrap.wrap(verse, width=numchars)
         for line in vlines:
             linewidth, lineheight = font.getsize(line)
@@ -69,6 +70,7 @@ def writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars
     hstart = imgheight/2 - totallinesheight/2
     y_text = hstart
     for verse in lines:
+        y_text += linespace*5
         vlines = textwrap.wrap(verse, width=numchars)
         for line in vlines:
             linewidth, lineheight = font.getsize(line)
@@ -77,7 +79,7 @@ def writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars
             if lineheight > maxlineheight:
                 maxlineheight = lineheight
             #canvas.text(((imgwidth - linewidth) / 2, y_text), line, font=font, fill=(255, 255, 255))
-            canvas.text((10, y_text), line, font=font, fill=bgcolor)
+            canvas.text((pixelwidthstart, y_text), line, font=font, fill=bgcolor)
             y_text += lineheight
             y_text += linespace
     
@@ -86,17 +88,6 @@ def writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars
     os.system(filename)
 
 # ideal image sizes from here: https://blog.hootsuite.com/social-media-image-sizes-guide/#instagram
-
-twitterwidth = 1024
-twitterheight = 512
-instawidth = 1080
-instaheight = 1080
-videowidth = 1920
-videoheight = 1080
-instanumchars = 45
-instanumchars = 50
-videonumchars = 40
-
 
 with open('abbreviations.txt') as f:
   d = dict(x.rstrip().split(',') for x in f)
@@ -108,7 +99,7 @@ bcvinput = ""
 bcvinput = ""
 bcvinput = ""
 
-# 4th  Sunday Ordinary Time
+# 4th Sunday Ordinary Time
 bcvinput = "Dt 18:15-20"
 bcvinput = "Ps 95:1-2, 6-9"
 bcvinput = "1 Cor 7:32-35"
@@ -169,17 +160,18 @@ bcvinput = "Lk 1:26-38"
 
 # 3rd Sunday Advent
 bcvinput = "Is 61:1-2A, 10-11"
+bcvinput = "Is 61:1-2, 10-11"
 bcvinput = "Lk 1:46-50, 53-54"
-bcvinput = "1 Thes 5:16-24"
-bcvinput = "Is 61:1"
-bcvinput = "Jn 1:6-8, 19-28"
+#bcvinput = "1 Thes 5:16-24"
+#bcvinput = "Is 61:1"
+#bcvinput = "Jn 1:6-8, 19-28"
 
 # 2nd Sunday Advent
-bcvinput = "Is 40:1-5,9-11"
-bcvinput = "Ps 84:8,9-14"
+#bcvinput = "Is 40:1-5,9-11"
+#bcvinput = "Ps 84:8,9-14"
 #bcvinput = "2 Pt 3:8-14"
 #bcvinput = "Lk 3:4,6"
-#bcvinput = "Mk 1:1-8"
+bcvinput = "Mk 1:1-8"
 
 verses = bcvinput.split(":")[-1]
 bkch = bcvinput.split(":")[0:-1][0]
@@ -241,13 +233,10 @@ print(basenamebkch)
 #basename = "Ez34-11-12--15-17"
 #basename = "Psalm22"
 
-instanumverses2write = 8
-instastorynumverses2write = 5
-twitternumverses2write = 5
-
-instanumchars = 45
-instanumchars = 50
-videonumchars = 40
+instanumverses2write = 4
+instastorynumverses2write = 2
+twitternumverses2write = 2
+twitternumverses2write = 4
 
 twitterwidth = 1024
 twitterheight = 512
@@ -258,14 +247,16 @@ instastoryheight = 1920
 videowidth = 1920
 videoheight = 1080
 
-instanumchars = 50
-instastorynumchars = 27
+instanumchars = 48
+instastorynumchars = 23
 videonumchars = 40
 twitternumchars = 40
+twitternumchars = 55
 
 instafontsize = 45
 instastoryfontsize = 80
 twitterfontsize = 50
+twitterfontsize = 40
 
 imgtag = imgtag = "-twitter-title"
 numverses2write = twitternumverses2write
@@ -274,19 +265,25 @@ imgheight = twitterheight
 fontsize = twitterfontsize
 numchars = twitternumchars
 
-imgtag = imgtag = "-insta-title"
-numverses2write = instanumverses2write
-imgwidth = instawidth
-imgheight = instaheight
-fontsize = instafontsize
-numchars = instanumchars
+instapixelwidthstart = 10
+twitterpixelwidthstart = 10
+instastorypixelwidthstart = 100
 
-# imgtag = imgtag = "-insta-title-story"
-# numverses2write = instastorynumverses2write
-# imgwidth = instastorywidth
-# imgheight = instastoryheight
-# fontsize = instastoryfontsize
-# numchars = instastorynumchars
+# imgtag = imgtag = "-insta-title"
+# numverses2write = instanumverses2write
+# imgwidth = instawidth
+# imgheight = instaheight
+# fontsize = instafontsize
+# numchars = instanumchars
+# pixelwidthstart = instapixelwidthstart
+
+imgtag = imgtag = "-insta-title-story"
+numverses2write = instastorynumverses2write
+imgwidth = instastorywidth
+imgheight = instastoryheight
+fontsize = instastoryfontsize
+numchars = instastorynumchars
+pixelwidthstart = instastorypixelwidthstart
 
 with open(basename + '.txt', 'w') as f:
     f.write(Book.replace("_"," ") + " Chapter " + Chapter + ":" + verses + "\n")
@@ -305,7 +302,7 @@ for i in range(firstverseidx,firstverseidx+numverses2write-1):
         basename += str(Verse)
         lines.append(verselines[i])
 print(basename)
-writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars,imgtag,fontsize)
+writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars,imgtag,fontsize,pixelwidthstart)
 
 firstverseidx = firstverseidx + numverses2write - 1
 while firstverseidx < lenverses:
@@ -319,5 +316,5 @@ while firstverseidx < lenverses:
             lines.append(verselines[i])
     print(basename)
     firstverseidx = firstverseidx + numverses2write
-    writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars,imgtag,fontsize)
+    writebiblejpg(basename,imgwidth,imgheight,lines,Book,Chapter,verses,numchars,imgtag,fontsize,pixelwidthstart)
 

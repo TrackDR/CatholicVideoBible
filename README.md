@@ -6,6 +6,8 @@ Facebook: https://www.facebook.com/catholicvideobible
 
 Instagram: https://www.instagram.com/catholicvideobible
 
+Tiktok: https://www.tiktok.com/@catholicvidbible
+
 Twitter at https://twitter.com/catholicvbible
 
 Feed at http://feeds.feedburner.com/OTPodcast

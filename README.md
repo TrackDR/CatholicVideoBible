@@ -4,7 +4,7 @@ Support files for creating videos at https://www.youtube.com/channel/UCoEOdVbK_K
 
 Facebook: https://www.facebook.com/catholicvideobible
 
-Instagram: https://www.instagram.com/catholicvideobible
+*Instagram: https://www.instagram.com/catholicvideobible
 
 Tiktok: https://www.tiktok.com/@catholicvidbible
 

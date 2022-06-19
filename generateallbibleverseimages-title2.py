@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 19 11:09:22 2020
-
-@author: jerem
-"""
 
 from PIL import Image, ImageDraw, ImageFont
 import os
@@ -48,7 +42,12 @@ def genbibleverseimage(Book,Chapter,Verse,imgwidth,imgheight,numchars,imgtag,fon
             text  = line
     
     title = "Wisdom 14:12"
-    title = Book + " " + Chapter + ":" + Verse
+    
+    
+    NewBook = Book.replace("_"," ")
+    
+    title = NewBook + " " + Chapter + ":" + Verse
+    print(title)
     
     lines = textwrap.wrap(text, width=numchars)
     lenlines = len(lines) + 2
